@@ -1,0 +1,35 @@
+<!-- simplex_app/templates/simplex_app/simplex.html -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Simplex Method</title>
+</head>
+<body>
+    <h1>Simplex Method Solver</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="c"> coeficietes da função objetiva (c):</label><br>
+        <input type="text" id="c" name="c" placeholder="ex. 1, -2, 3"><br><br>
+
+         <label for="inequalities">Constraints (separado por ';', use '<=', '>=', or '='):</label><br>
+        <textarea id="inequalities" name="inequalities" placeholder="ex. 2,1,<=,20;4,-5,>=,-10;1,2,=,15" rows="4" cols="20" ></textarea><br><br>
+        
+        <label for="maximize">Maximize:</label>
+        <input type="checkbox" id="maximize" name="maximize"><br><br>
+        
+        <button type="submit">Solve</button>
+    </form>
+
+    {% if error %}
+        <h2>Error</h2>
+        <p>{{ error }}</p>
+    {% endif %} 
+
+    {% if result %}
+        <h2>Result</h2>
+        <p>Status: {{ result.message }}</p>
+        <p>Valor ótimo: {{ result.fun }}</p>
+        <p>Solução: {{ result.x }}</p>
+    {% endif %}
+</body>
+</html>
