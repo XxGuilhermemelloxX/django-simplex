@@ -42,6 +42,7 @@ def simplex_view(request):
             else:
                 result = simplex(c, A_ub, b_ub, A_eq if A_eq else None, b_eq if b_eq else None, maximize=maximize)
                 context['result'] = result
+                context['valor_funcao'] = result.x
         except ValueError as e:
             context['error'] = f"Por favor, insira valores numéricos válidos nos campos. Erro: {str(e)}"
 

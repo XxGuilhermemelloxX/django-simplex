@@ -43,8 +43,10 @@
             <div class="alert alert-success mt-3" role="alert">
                 <h4 class="alert-heading">Result</h4>
                 <p>Status: {{ result.message }}</p>
-                <p>Valor ótimo: {{ result.fun }}</p>
-                <p>Solução: {{ result.x }}</p>
+                <p>Valor ótimo(Z): {{ result.fun }}</p>
+                {% for i in valor_funcao %}
+                <p>X{{ forloop.counter }}:{{ i.name }} {{ i }}</p>
+                {% endfor %}
             </div>
         {% endif %}
     </div>
