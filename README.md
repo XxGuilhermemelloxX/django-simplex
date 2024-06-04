@@ -13,7 +13,7 @@ Para executar este projeto localmente, siga os passos abaixo:
 
 1. Clone o repositório:
 ```bash
-git clone 
+git clone https://github.com/XxGuilhermemelloxX/django-simplex.git
 ```
 2. instale as dependencias:
 ```
